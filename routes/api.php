@@ -22,7 +22,7 @@ Route::post('/login', [AuthController::class, 'login'])->middleware('throttle:3,
 //Ruta para cerrar sesion
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:api');
 
-//Obtiene datos de los departamentos, con un limite de 30 peticiones por minuto
+
 Route::get('/departments', [DepartmentController::class, 'index'])->middleware('auth:api');
 
 //Middleware CRUD con auth, alias organization y con un limite de 20 peticiones por minuto
