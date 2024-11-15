@@ -131,7 +131,772 @@
                     </div>
 
                     <div class="ml-4 text-center text-sm text-gray-500 dark:text-gray-400 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
+                    <html lang="en" class="wf-fontawesome-n4-active wf-active"><head>
+  <meta charset="UTF-8">
+  
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111">
+
+
+
+  
+    <script src="https://use.fontawesome.com/webfontloader/1.6.24/webfontloader.js"></script><script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+
+  <title>Vanilla Wizard.</title>
+
+    <link rel="canonical" href="https://codepen.io/kaueburiti/pen/YNZGZO">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+
+<script src="https://use.fontawesome.com/6a6312675e.js"></script>
+  
+  
+  
+<style>
+body, html {
+  padding: 0;
+  margin: 0;
+  background: #F7F8FA;
+  font-family: "Lato", sans-serif;
+  color: #676767;
+}
+
+.wrapper {
+  position: relative;
+  max-width: 1080px;
+  margin: 50px auto;
+}
+
+.wizard {
+  max-width: 620px;
+  margin: 0 auto;
+}
+.wizard__header {
+  position: relative;
+  color: #FFF;
+  padding: 50px;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  text-align: center;
+  height: 100px;
+  background: url("");
+  background-color: #4D637B;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.wizard__header-content {
+  position: absolute;
+  width: 100%;
+  padding: 0 50px;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+.wizard__header-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(77, 99, 123, 0.6);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.wizard__title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0;
+}
+.wizard__subheading {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 100;
+  letter-spacing: 2px;
+}
+.wizard__subheading span {
+  font-weight: 600;
+}
+.wizard__steps {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(50%);
+  z-index: 10;
+}
+.wizard__footer {
+  padding: 0 50px 50px;
+  border-radius: 5px;
+}
+.wizard__content {
+  background: #FFF;
+  box-shadow: 0px 0px 10px #c5c5c5;
+  border-radius: 5px;
+}
+.wizard__congrats-message {
+  color: #676767;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.wizard.completed .wizard__content {
+  animation: gettingOut 2s cubic-bezier(1, -0.71, 1, 1.16) forwards;
+}
+.wizard.completed .wizard__congrats-message {
+  animation: fadeIn 2s cubic-bezier(1, -0.71, 1, 1.16) forwards;
+}
+
+.line {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  z-index: -1;
+  height: 6px;
+  transition: all 0.5s ease;
+}
+.line.-start {
+  left: 0%;
+  background: #5094de;
+  width: 50%;
+}
+.line.-end {
+  left: 50%;
+  background: #5094de;
+  width: 50%;
+}
+.line.-background {
+  background: #c3c3c3;
+  width: 100%;
+}
+.line.-progress {
+  background: #5094de;
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.line.-in-progress {
+  transform: scaleX(1);
+}
+
+.panels {
+  position: relative;
+  overflow: hidden;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.5s all;
+  padding: 50px;
+}
+.panel__header {
+  margin-bottom: 30px;
+}
+.panel__title {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin: 0;
+}
+.panel__subheading {
+  font-size: 0.9rem;
+  line-height: 1.2rem;
+  margin: 0;
+}
+.panel.movingOutBackward {
+  transform: translateX(-620px);
+}
+.panel.movingOutFoward {
+    display: none; /* Oculta los paneles no activos */
+}
+.panel.movingIn {
+    display: block; /* Asegúrate de que el panel activo sea visible */
+    opacity: 1;
+    pointer-events: auto; /* Habilita la interactividad */
+    z-index: 1; /* Asegura que esté por encima de otros paneles */
+}
+.steps {
+  position: relative;
+  display: flex;
+  flex: 0 1 auto;
+  color: #fff;
+}
+
+.step {
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  border-radius: 5px;
+}
+.step__content {
+  position: relative;
+  z-index: 2;
+}
+.step__number {
+  font-size: 1.3rem;
+  color: #676767;
+  background: #FFF;
+  font-weight: 800;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  margin: 0 auto;
+  border-radius: 50%;
+  border: 5px solid #c3c3c3;
+  transition: opacity 0.5s;
+  opacity: 1;
+  z-index: 5;
+}
+.step.-completed .step__number {
+  opacity: 0;
+}
+.step.-completed .checkmark {
+  z-index: 0;
+  animation: fill 0.4s ease-in-out forwards, scale 0.3s ease-in-out 0.6s both;
+}
+.step.-completed .checkmark__check {
+  animation: stroke 0.5s linear 0.4s forwards;
+}
+.step.-completed .line {
+  transform: scaleX(1);
+}
+.step:last-child .line {
+  width: 50%;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  stroke-width: 2;
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  box-shadow: inset 0px 0px 0px #75b2f5;
+  z-index: -1;
+}
+.checkmark__circle {
+  stroke-dasharray: 166;
+  stroke-dashoffset: 166;
+  stroke-width: 8;
+  stroke-miterlimit: 10;
+  stroke: #5094de;
+  fill: none;
+  animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+.checkmark__check {
+  transform-origin: 50% 50%;
+  stroke-dasharray: 40;
+  stroke-dashoffset: 40;
+  stroke: #FFF;
+  stroke-width: 5;
+}
+
+.button {
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1rem;
+  background: #5094de;
+  color: #FFF;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  display: inline-block;
+  transition: all 0.3s;
+}
+.button:hover {
+  background: #7baee6;
+}
+.button.previous {
+  margin-right: 5px;
+}
+.button.disabled {
+  background: #c3c3c3;
+  cursor: default;
+}
+.step.-visited .checkmark {
+    animation: none; /* Eliminar animación de los pasos completados */
+    box-shadow: inset 0px 0px 0px 30px #5094de; /* Mantener el color */
+}
+
+.step.-visited .checkmark__check {
+    stroke-dashoffset: 0; /* Mostrar el check completo */
+}
+
+@keyframes stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes scale {
+  50% {
+    transform: translateX(-50%) scale3d(1.5, 1.5, 1.5);
+  }
+  100% {
+    transform: scale3d(0);
+  }
+}
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px #75b2f5;
+  }
+}
+@keyframes gettingOut {
+  0% {
+    transform: translateY(0%);
+  }
+  30% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(-200%);
+  }
+}
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+</style>
+</head>
+<body translate="no">
+  <div class="wrapper">
+  <div id="wizard1" class="wizard">
+    <div class="wizard__content">
+      <header class="wizard__header">
+        <div class="wizard__header-overlay"></div>
+        
+        <div class="wizard__header-content">
+          <h1 class="wizard__title">Get start with Javascript!</h1>
+          <p class="wizard__subheading">Start with <span>3</span> simple steps.</p>
+        </div>   
+        <div class="wizard__steps">
+          <nav class="steps">
+          <div class="step">
+            <div class="step__content" >
+              <p class="step__number"><i class="fa fa-github-alt" aria-hidden="true"></i></p>
+              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+              </svg>
+
+              <div class="lines">
+                <div class="line -start">
+                </div>
+
+                <div class="line -background">
+                </div>
+
+                <div class="line -progress">
+                </div>
+              </div>  
+            </div>
+          </div>
+
+          <div class="step" >
+            <div class="step__content">
+              <p class="step__number"><i class="fa fa-book" aria-hidden="true"></i></p>
+              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+              </svg>
+
+              <div class="lines">
+                <div class="line -background">
+                </div>
+
+                <div class="line -progress">
+                </div>
+              </div> 
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="step__content">
+              <p class="step__number"><i class="fa fa-group" aria-hidden="true"></i></p>
+              <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
+                <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+              </svg>
+
+              <div class="lines">
+                <div class="line -background">
+                </div>
+
+                <div class="line -progress">
+                </div>
+              </div> 
+            </div>
+          </div>
+        </nav>
+        </div>
+      </header>
+      
+      
+      <div class="panels" style="height: 289px;">
+        <div class="panel movingIn">
+            <header class="panel__header">
+              <h2 class="panel__title">Create a Github account</h2>
+              <p class="panel__subheading">With github you can show your projects and find new things everyday!</p>
+            </header>
+            <form data-step="0">
+              <label for="name">Name:</label>
+              <input type="text" id="name1" name="name" required>
+          </form>
+        </div>
+
+        <div class="panel movingOutFoward">
+           <header class="panel__header">
+              <h2 class="panel__title">Learn more about pure Javascript.</h2>
+              <p class="panel__subheading">We have cool frameworks, but none is better then VanillaJS</p>
+           </header>
+          
+           <form id="form-step2" data-step="1">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label>Choose an option:</label>
+            <br>
+            <input type="radio" id="option1" name="options" value="option1" required>
+            <label for="option1">Option 1</label>
+            <br>
+            <input type="radio" id="option2" name="options" value="option2" required>
+            <label for="option2">Option 2</label>
+        </form>
+        </div>
+
+        <div class="panel movingOutFoward">
+          <header class="panel__header">
+            <h2 class="panel__title">Stay in touch with the community.</h2>
+            <p class="panel__subheading">Community is everything, and here we do some crazy stuff.</p>
+           </header>
+          
+          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+
+      <div class="wizard__footer">
+        <button id="prev1">Previous</button>
+        <button id="next1">Next</button>
+    </div>
+    </div>
+    
+    <h1 class="wizard__congrats-message">
+      Congratulations, you are now in a world of pain and suffering!
+    </h1>
+  </div>
+  <button id="boton1">boton1</button>
+  <button id="boton2">boton2</button>
+</div>
+<div id="wizard2" class="wizard" >
+  <div class="wizard__content">
+    <header class="wizard__header">
+      <div class="wizard__header-overlay"></div>
+      
+      <div class="wizard__header-content">
+        <h1 class="wizard__title">Get start with Javascript!</h1>
+        <p class="wizard__subheading">Start with <span>3</span> simple steps.</p>
+      </div>   
+      <div class="wizard__steps">
+        <nav class="steps">
+        <div class="step">
+          <div class="step__content">
+            <p class="step__number"><i class="fa fa-github-alt" aria-hidden="true"></i></p>
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+            </svg>
+
+            <div class="lines">
+              <div class="line -start">
+              </div>
+
+              <div class="line -background">
+              </div>
+
+              <div class="line -progress">
+              </div>
+            </div>  
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__content">
+            <p class="step__number"><i class="fa fa-github-alt" aria-hidden="true"></i></p>
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+            </svg>
+
+            <div class="lines">
+              <div class="line -start">
+              </div>
+
+              <div class="line -background">
+              </div>
+
+              <div class="line -progress">
+              </div>
+            </div>  
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step__content">
+            <p class="step__number"><i class="fa fa-book" aria-hidden="true"></i></p>
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+            </svg>
+
+            <div class="lines">
+              <div class="line -background">
+              </div>
+
+              <div class="line -progress">
+              </div>
+            </div> 
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step__content">
+            <p class="step__number"><i class="fa fa-group" aria-hidden="true"></i></p>
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
+              <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
+            </svg>
+
+            <div class="lines">
+              <div class="line -background">
+              </div>
+
+              <div class="line -progress">
+              </div>
+            </div> 
+          </div>
+        </div>
+      </nav>
+      </div>
+    </header>
+    
+    
+    <div class="panels" style="height: 289px;">
+      <div class="panel movingIn">
+          <header class="panel__header">
+            <h2 class="panel__title">C</h2>
+            <p class="panel__subheading">With github you can show your projects and find new things everyday!</p>
+          </header>
+         
+          <form data-step="0">
+            <label for="names">Name:</label>
+            <input type="text" id="names" name="names" required>
+        </form>
+      </div>
+      <div class="panel movingOutFoward">
+        <header class="panel__header">
+           <h2 class="panel__title">po</h2>
+           <p class="panel__subheading">We have cool frameworks, but none is better then VanillaJS</p>
+        </header>
+       
+        <form data-step="1">
+          <label for="name">Name:</label>
+          <input type="text" id="name1" name="name" required>
+      </form>
+     </div>
+
+      <div class="panel movingOutFoward">
+         <header class="panel__header">
+            <h2 class="panel__title">L</h2>
+            <p class="panel__subheading">We have cool frameworks, but none is better then VanillaJS</p>
+         </header>
+        
+         <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+         <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
+      <div class="panel movingOutFoward">
+        <header class="panel__header">
+          <h2 class="panel__title">S.</h2>
+          <p class="panel__subheading">Community is everything, and here we do some crazy stuff.</p>
+         </header>
+        
+        <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </div>
+
+    <div class="wizard__footer">
+      <button id="prev2">Previous</button>
+      <button id="next2">Next</button>
+  </div>
+  </div>
+  
+  <h1 class="wizard__congrats-message">
+    Congratulations, you are now in a world of pain and suffering!
+  </h1>
+</div>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+      <script >
+$(document).ready(function () {
+    function initWizard(wizardId, prevBtnId, nextBtnId) {
+        let currentStep = 0;
+        const wizard = $(`#${wizardId}`);
+        const panels = wizard.find(".panels .panel");
+        const steps = wizard.find(".wizard__steps .step");
+        const totalSteps = panels.length;
+
+        function updateSteps() {
+            steps.each(function (index) {
+                if (index <= currentStep) {
+                    $(this).addClass("-completed");
+                } else {
+                    $(this).removeClass("-completed");
+                }
+            });
+        }
+
+        function showPanel(step) {
+            panels.removeClass("movingIn").addClass("movingOutFoward").hide();
+            steps.removeClass("active");
+
+            const currentPanel = $(panels[step]);
+            currentPanel.removeClass("movingOutFoward").addClass("movingIn").show();
+
+            currentPanel.find("input, select, textarea").prop("disabled", false);
+
+            panels.each(function (index, panel) {
+                if (index !== step) {
+                    $(panel).find("input, select, textarea").prop("disabled", true);
+                }
+            });
+
+            $(steps[step]).addClass("active");
+            updateSteps();
+        }
+
+        function toggleButtons() {
+            $(`#${prevBtnId}`).toggleClass("disabled", currentStep === 0);
+            $(`#${nextBtnId}`).text(currentStep === totalSteps - 1 ? "Finish" : "Next");
+        }
+
+        showPanel(currentStep);
+
+        $(`#${nextBtnId}`).click(function () {
+            if (currentStep < totalSteps - 1) {
+                const form = wizard.find(`form[data-step="${currentStep}"]`);
+
+                if (form.length > 0) {
+                  const emailField = form.find('input[type="email"]');
+                    if (emailField.length > 0) {
+                        const email = emailField.val();
+                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        if (!emailRegex.test(email)) {
+                            alert("Please enter a valid email address.");
+                            return;
+                        }
+                    }
+                    if (!form[0].checkValidity()) {
+                        alert("Please fill out all required fields.");
+                        form[0].reportValidity();
+                        return;
+                    }
+
+                    // Validar email solo si el campo tiene type="email"
+                    
+                }
+
+                currentStep++;
+                showPanel(currentStep);
+            }else {
+        // Recolectar los datos manualmente
+        const wizardData = collectWizardDataManually(wizardId);
+        console.log("Datos recolectados:", wizardData);
+
+        // Aquí puedes enviar los datos al servidor
+        $.ajax({
+            url: "https://tu-servidor.com/api/guardar", // Cambia esta URL por la de tu servidor
+            method: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(wizardData),
+            success: function (response) {
+                alert("Datos enviados con éxito.");
+                console.log("Respuesta del servidor:", response);
+            },
+            error: function (error) {
+                alert("Ocurrió un error al enviar los datos.");
+                console.error("Error:", error);
+            },
+        });
+    }
+            toggleButtons();
+        });
+
+        $(`#${prevBtnId}`).click(function () {
+            if (currentStep > 0) {
+                currentStep--;
+                showPanel(currentStep);
+            }
+            toggleButtons();
+        });
+    }
+
+    initWizard("wizard1", "prev1", "next1");
+    initWizard("wizard2", "prev2", "next2");
+});
+
+function collectWizardDataManually(wizardId) {
+    const wizard = $(`#${wizardId}`);
+
+    // Variables para almacenar los datos
+    let name = "";
+    let email = "";
+    let selectedOption = "";
+
+    // Recopilar datos del primer formulario (Name)
+    const nameField = wizard.find('form[data-step="0"] #name1');
+    if (nameField.length > 0) {
+        name = nameField.val(); // Asignar el valor del campo "name"
+    }
+
+    // Recopilar datos del segundo formulario (Email y Radio)
+    const emailField = wizard.find('form[data-step="1"] #email');
+    if (emailField.length > 0) {
+        email = emailField.val(); // Asignar el valor del campo "email"
+    }
+
+    const selectedRadio = wizard.find('form[data-step="1"] input[name="options"]:checked');
+    if (selectedRadio.length > 0) {
+        selectedOption = selectedRadio.val(); // Asignar el valor del botón de opción seleccionado
+    }
+
+    // Retornar un objeto con los datos recolectados
+    return { name, email, selectedOption };
+}
+
+    </script>
+
+  
+
+
+
+</body></html>
                     </div>
                 </div>
             </div>
