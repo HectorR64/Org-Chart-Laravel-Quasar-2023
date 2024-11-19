@@ -479,17 +479,16 @@ body, html {
 </head>
 <body translate="no">
   <div class="wrapper">
-  <div id="wizard1" class="wizard">
+  <div class="wizard">
     <div class="wizard__content">
       <header class="wizard__header">
         <div class="wizard__header-overlay"></div>
-        
         <div class="wizard__header-content">
           <h1 class="wizard__title">Get start with Javascript!</h1>
           <p class="wizard__subheading">Start with <span>3</span> simple steps.</p>
         </div>   
         <div class="wizard__steps">
-          <nav class="steps">
+          <nav id="wizard1-steps" class="steps">
           <div class="step">
             <div class="step__content" >
               <p class="step__number"><i class="fa fa-github-alt" aria-hidden="true"></i></p>
@@ -549,20 +548,17 @@ body, html {
         </nav>
         </div>
       </header>
-      
-      
-      <div class="panels" style="height: 289px;">
+      <div id="wizard1-panels" class="panels" style="height: 289px;">
         <div class="panel movingIn">
             <header class="panel__header">
-              <h2 class="panel__title">Create a Github account</h2>
-              <p class="panel__subheading">With github you can show your projects and find new things everyday!</p>
+              <h2 class="panel__title">Cre</h2>
+              <p class="panel__subheading">ryday!</p>
             </header>
             <form data-step="0">
               <label for="name">Name:</label>
               <input type="text" id="name1" name="name" required>
           </form>
         </div>
-
         <div class="panel movingOutFoward">
            <header class="panel__header">
               <h2 class="panel__title">Learn more about pure Javascript.</h2>
@@ -582,41 +578,34 @@ body, html {
             <label for="option2">Option 2</label>
         </form>
         </div>
-
         <div class="panel movingOutFoward">
           <header class="panel__header">
-            <h2 class="panel__title">Stay in touch with the community.</h2>
-            <p class="panel__subheading">Community is everything, and here we do some crazy stuff.</p>
+            <h2 class="panel__title">Stay.</h2>
            </header>
           
-          <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p class="panel__content">Lore</p>
         </div>
       </div>
-
       <div class="wizard__footer">
-        <button id="prev1">Previous</button>
-        <button id="next1">Next</button>
+        <button id="prev-wizard1-steps">Previous</button>
+  <button id="next-wizard1-steps">Next</button>
     </div>
     </div>
-    
     <h1 class="wizard__congrats-message">
-      Congratulations, you are now in a world of pain and suffering!
+      Congratulations
     </h1>
   </div>
-  <button id="boton1">boton1</button>
-  <button id="boton2">boton2</button>
 </div>
-<div id="wizard2" class="wizard" >
+<div class="wizard" >
   <div class="wizard__content">
     <header class="wizard__header">
       <div class="wizard__header-overlay"></div>
-      
       <div class="wizard__header-content">
         <h1 class="wizard__title">Get start with Javascript!</h1>
         <p class="wizard__subheading">Start with <span>3</span> simple steps.</p>
       </div>   
       <div class="wizard__steps">
-        <nav class="steps">
+        <nav id="wizard2-steps" class="steps">
         <div class="step">
           <div class="step__content">
             <p class="step__number"><i class="fa fa-github-alt" aria-hidden="true"></i></p>
@@ -624,14 +613,11 @@ body, html {
               <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
               <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
             </svg>
-
             <div class="lines">
               <div class="line -start">
               </div>
-
               <div class="line -background">
               </div>
-
               <div class="line -progress">
               </div>
             </div>  
@@ -644,20 +630,16 @@ body, html {
               <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
               <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
             </svg>
-
             <div class="lines">
               <div class="line -start">
               </div>
-
               <div class="line -background">
               </div>
-
               <div class="line -progress">
               </div>
             </div>  
           </div>
         </div>
-
         <div class="step">
           <div class="step__content">
             <p class="step__number"><i class="fa fa-book" aria-hidden="true"></i></p>
@@ -665,17 +647,14 @@ body, html {
               <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
               <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
             </svg>
-
             <div class="lines">
               <div class="line -background">
               </div>
-
               <div class="line -progress">
               </div>
             </div> 
           </div>
         </div>
-
         <div class="step">
           <div class="step__content">
             <p class="step__number"><i class="fa fa-group" aria-hidden="true"></i></p>
@@ -683,11 +662,9 @@ body, html {
               <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"></circle>
               <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"></path>
             </svg>
-
             <div class="lines">
               <div class="line -background">
               </div>
-
               <div class="line -progress">
               </div>
             </div> 
@@ -695,16 +672,13 @@ body, html {
         </div>
       </nav>
       </div>
-    </header>
-    
-    
-    <div class="panels" style="height: 289px;">
+    </header>  
+    <div id="wizard2-panels" class="panels" style="height: 289px;">
       <div class="panel movingIn">
           <header class="panel__header">
             <h2 class="panel__title">C</h2>
-            <p class="panel__subheading">With github you can show your projects and find new things everyday!</p>
-          </header>
-         
+            <p class="panel__subheading">Withy!</p>
+          </header>         
           <form data-step="0">
             <label for="names">Name:</label>
             <input type="text" id="names" name="names" required>
@@ -713,41 +687,33 @@ body, html {
       <div class="panel movingOutFoward">
         <header class="panel__header">
            <h2 class="panel__title">po</h2>
-           <p class="panel__subheading">We have cool frameworks, but none is better then VanillaJS</p>
-        </header>
-       
+           <p class="panel__subheading">We </p>
+        </header>     
         <form data-step="1">
           <label for="name">Name:</label>
-          <input type="text" id="name1" name="name" required>
+          <input type="number" id="numero1" name="numero" required>
       </form>
      </div>
-
       <div class="panel movingOutFoward">
          <header class="panel__header">
             <h2 class="panel__title">L</h2>
-            <p class="panel__subheading">We have cool frameworks, but none is better then VanillaJS</p>
+            <p class="panel__subheading">We</p>
          </header>
-        
-         <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
-         <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+         <p class="panel__content">Lt anim id est laborum.</p>
       </div>
-
       <div class="panel movingOutFoward">
         <header class="panel__header">
           <h2 class="panel__title">S.</h2>
           <p class="panel__subheading">Community is everything, and here we do some crazy stuff.</p>
          </header>
-        
-        <p class="panel__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p class="panel__content">Lorum.</p>
       </div>
     </div>
-
     <div class="wizard__footer">
-      <button id="prev2">Previous</button>
-      <button id="next2">Next</button>
+      <button id="prev-wizard2-steps">Previous</button>
+      <button id="next-wizard2-steps">Next</button>
   </div>
   </div>
-  
   <h1 class="wizard__congrats-message">
     Congratulations, you are now in a world of pain and suffering!
   </h1>
@@ -755,12 +721,11 @@ body, html {
 <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
       <script >
 $(document).ready(function () {
-    function initWizard(wizardId, prevBtnId, nextBtnId) {
-        let currentStep = 0;
-        const wizard = $(`#${wizardId}`);
-        const panels = wizard.find(".panels .panel");
-        const steps = wizard.find(".wizard__steps .step");
+    function initWizard(stepsId, panelsId) {
+        const steps = $(`#${stepsId} .step`);
+        const panels = $(`#${panelsId} .panel`);
         const totalSteps = panels.length;
+        let currentStep = 0;
 
         function updateSteps() {
             steps.each(function (index) {
@@ -779,87 +744,56 @@ $(document).ready(function () {
             const currentPanel = $(panels[step]);
             currentPanel.removeClass("movingOutFoward").addClass("movingIn").show();
 
-            currentPanel.find("input, select, textarea").prop("disabled", false);
-
-            panels.each(function (index, panel) {
-                if (index !== step) {
-                    $(panel).find("input, select, textarea").prop("disabled", true);
-                }
-            });
-
             $(steps[step]).addClass("active");
             updateSteps();
         }
 
         function toggleButtons() {
-            $(`#${prevBtnId}`).toggleClass("disabled", currentStep === 0);
-            $(`#${nextBtnId}`).text(currentStep === totalSteps - 1 ? "Finish" : "Next");
+            $(`#prev-${stepsId}`).toggleClass("disabled", currentStep === 0);
+            $(`#next-${stepsId}`).text(currentStep === totalSteps - 1 ? "Finish" : "Next");
         }
 
         showPanel(currentStep);
 
-        $(`#${nextBtnId}`).click(function () {
-            if (currentStep < totalSteps - 1) {
-                const form = wizard.find(`form[data-step="${currentStep}"]`);
+        $(`#next-${stepsId}`).click(function () {
+          if (currentStep < totalSteps - 1) {
+              const form = panels.eq(currentStep).find("form");
+              if (form.length > 0) {
+                  // Validación de campos básicos del formulario
+                  if (!form[0].checkValidity()) {
+                      alert("Please fill out all required fields.");
+                      form[0].reportValidity();
+                      return;
+                  }
 
-                if (form.length > 0) {
-                  const emailField = form.find('input[type="email"]');
-                    if (emailField.length > 0) {
-                        const email = emailField.val();
-                        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                        if (!emailRegex.test(email)) {
-                            alert("Please enter a valid email address.");
-                            return;
-                        }
-                    }
-                    if (!form[0].checkValidity()) {
-                        alert("Please fill out all required fields.");
-                        form[0].reportValidity();
-                        return;
-                    }
+                  // Validación personalizada para el campo numérico
+                  const numeroField = form.find("#numero1");
+                  if (numeroField.length > 0) {
+                      const numeroValue = parseInt(numeroField.val(), 10);
+                      if (isNaN(numeroValue) || numeroValue > 100) {
+                          alert("The number must not exceed 100.");
+                          return;
+                      }
+                  }
+              }
 
-                    // Validar email solo si el campo tiene type="email"
-                    
-                }
+              currentStep++;
+              showPanel(currentStep);
+          } else {
+              alert("Wizard completed!");
+          }
+          toggleButtons();
+      });
 
-                currentStep++;
-                showPanel(currentStep);
-            }else {
-        // Recolectar los datos manualmente
-        const wizardData = collectWizardDataManually(wizardId);
-        console.log("Datos recolectados:", wizardData);
-
-        // Aquí puedes enviar los datos al servidor
-        $.ajax({
-            url: "https://tu-servidor.com/api/guardar", // Cambia esta URL por la de tu servidor
-            method: "POST",
-            contentType: "application/json",
-            data: JSON.stringify(wizardData),
-            success: function (response) {
-                alert("Datos enviados con éxito.");
-                console.log("Respuesta del servidor:", response);
-            },
-            error: function (error) {
-                alert("Ocurrió un error al enviar los datos.");
-                console.error("Error:", error);
-            },
-        });
-    }
-            toggleButtons();
-        });
-
-        $(`#${prevBtnId}`).click(function () {
-            if (currentStep > 0) {
-                currentStep--;
-                showPanel(currentStep);
-            }
-            toggleButtons();
-        });
     }
 
-    initWizard("wizard1", "prev1", "next1");
-    initWizard("wizard2", "prev2", "next2");
+    // Inicializar Wizard 1
+    initWizard("wizard1-steps", "wizard1-panels");
+
+    // Inicializar Wizard 2
+    initWizard("wizard2-steps", "wizard2-panels");
 });
+
 
 function collectWizardDataManually(wizardId) {
     const wizard = $(`#${wizardId}`);
@@ -897,6 +831,9 @@ function collectWizardDataManually(wizardId) {
 
 
 </body></html>
+  
+  
+  
                     </div>
                 </div>
             </div>
